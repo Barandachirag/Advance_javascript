@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- What is promises -->
+
+</head>
+<body>
+    <!-- Promises in JavaScript are objects used to handle asynchronous operations. They represent the eventual completion or failure of an asynchronous operation and allow you to write cleaner and more readable asynchronous code compared to traditional callback-based approaches.
+
+    A Promise can be in one of three states:
+
+    Pending: Initial state, neither fulfilled nor rejected.
+    Fulfilled (Resolved): The operation completed successfully.
+    Rejected: The operation failed, and an error reason is provided.
+    Promises have two main methods:
+
+    then: Allows you to handle the fulfillment of the Promise. It takes two optional callback functions: one for the success case and one for the failure case.
+    catch: Allows you to handle any errors that may occur during the Promise chain. It's a shorthand for calling .then(undefined, onRejected).
+    Promises are particularly useful for handling asynchronous operations like fetching data from a server, reading files, or executing code asynchronously in modern JavaScript. They provide a cleaner alternative to nested callbacks and help to avoid callback hell. -->
+    <script>
+        
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    
+    setTimeout(() => {
+      const data = { name: "John", age: 30 };
+      
+    
+      resolve(data);
+      
+      
+    }, 2000); 
+  });
+}
+
+
+fetchData()
+  .then((data) => {
+   
+    console.log("Data fetched successfully:", data);
+  })
+  .catch((error) => {
+   
+    console.error("Error fetching data:", error);
+  });
+
+    </script>
+</body>
+</html>

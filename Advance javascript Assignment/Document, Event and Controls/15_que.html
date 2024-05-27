@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Selector Alert</title>
+<!-- Create a program that will select all the classes and loop over and whenever i click the
+button the alert should show -->
+
+</head>
+<body>
+  <div class="alert-class">First Element</div>
+  <div class="alert-class">Second Element</div>
+  <div class="alert-class">Third Element</div>
+
+  <button onclick="showAlerts()">Click me to show alerts</button>
+
+  <script>
+    function showAlerts() {
+      
+      var elements = document.querySelectorAll('.alert-class');
+
+     
+      elements.forEach(function(element) {
+       
+        alert(element.textContent);
+      });
+    }
+  </script>
+</body>
+</html>

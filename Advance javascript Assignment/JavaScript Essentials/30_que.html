@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- How to used JavaScript Events to do all examples? -->
+    <style>
+        #output { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <button id="logButton">Log to Console</button>
+    <button id="alertButton">Show Alert</button>
+    <button id="writeButton">Write to Document</button>
+    <button id="innerHtmlButton">Update Content</button>
+    <button id="promptButton">Prompt User</button>
+    <div id="output"></div>
+    <script>
+        // Log to Console
+        document.getElementById("logButton").addEventListener("click", function() {
+            console.log("Hello, world!");
+            console.log("User clicked the log button.");
+        });
+
+        // Show Alert
+        document.getElementById("alertButton").addEventListener("click", function() {
+            alert("Hello, world!");
+        });
+
+        // Write to Document
+        document.getElementById("writeButton").addEventListener("click", function() {
+            document.write("<p>This is written using document.write().</p>");
+        });
+
+        // Update Content with innerHTML
+        document.getElementById("innerHtmlButton").addEventListener("click", function() {
+            document.getElementById("output").innerHTML = "This content is updated using innerHTML.";
+        });
+
+        // Prompt User
+        document.getElementById("promptButton").addEventListener("click", function() {
+            var userInput = prompt("Please enter your name:");
+            if (userInput !== null) {
+                document.getElementById("output").innerHTML = "Hello, " + userInput + "!";
+                console.log("User entered: " + userInput);
+            }
+        });
+
+        // Additional console methods
+        document.getElementById("logButton").addEventListener("click", function() {
+            console.error("This is an error message.");
+            console.warn("This is a warning message.");
+            console.info("This is an informational message.");
+            console.debug("This is a debug message.");
+        });
+    </script>
+</body>
+</html>

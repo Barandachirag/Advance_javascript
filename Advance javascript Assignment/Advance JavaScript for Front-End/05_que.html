@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- The following function returns true if the parameter age is greater than
+    18. Otherwise it asks for a confirmation and returns its result:
+    function
+    checkAge(age)
+    {
+    else {
+    }
+    }
+    if (age> 18) { return true; }
+    // ...return confirm (‘did parents allow you?'); -->
+
+</head>
+<body>
+   <script>
+    function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm('Did parents allow you?');
+  }
+}
+console.log(checkAge(20)); // Output: true (since 20 > 18)
+console.log(checkAge(16)); // Output: true/false based on user confirmation
+
+   </script> 
+</body>
+</html>

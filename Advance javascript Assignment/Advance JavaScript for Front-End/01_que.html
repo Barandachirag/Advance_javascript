@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Write a program to Show an alert -->
+
+    <style>
+        
+        .alert {
+          padding: 20px;
+          background-color: #5614c8;
+          color: white;
+          border-radius: 5px;
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          z-index: 9999;
+        }
+      </style>
+</head>
+<body>
+    <button onclick="showAlert()">Show Alert</button>
+
+
+<div id="Alert1" class="alert" style="display: none;"></div>
+</body>
+<script>
+    function showAlert() {
+      var message = "This is a alert!";
+      var duration = 3000; 
+    
+      var alertDiv = document.getElementById("Alert1");
+      alertDiv.textContent = message;
+      alertDiv.style.display = "block";
+    
+      
+      setTimeout(function() {
+        alertDiv.style.display = "none";
+      }, duration);
+    }
+    </script>
+</html>

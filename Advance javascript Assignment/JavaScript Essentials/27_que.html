@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subtotal Calculator</title>
+    <!-- Calculate subtotal price of quantity in JavaScript? -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .remove-btn {
+            background-color: #dc3545;
+        }
+
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+
+        .result {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Subtotal Calculator</h1>
+        <form id="add-product-form">
+            <div class="form-group">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" required>
+            </div>
+            <div class="form-group">
+                <label for="pricePerItem">Price per Item:</label>
+                <input type="number" id="pricePerItem" name="pricePerItem" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+            </div>
+            <button type="button" onclick="addProduct()">Add Product</button>
+        </form>
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price per Item</th>
+                    <th>Subtotal</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="result">
+            <h2>Total: $<span id="total">0.00</span></h2>
+        </div>
+    </div>
+    <script>
+        function addProduct() {
+            const productName = document.getElementById('productName').value;
+            const pricePerItem = parseFloat(document.getElementById('pricePerItem').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+
+            if (isNaN(pricePerItem) || isNaN(quantity) || pricePerItem < 0 || quantity < 0 || !productName) {
+                alert('Please enter valid values for all fields.');
+                return;
+            }
+
+            const tableBody = document.getElementById('product-table').getElementsByTagName('tbody')[0];
+            const newRow = tableBody.insertRow();
+
+            const productNameCell = newRow.insertCell(0);
+            const quantityCell = newRow.insertCell(1);
+            const pricePerItemCell = newRow.insertCell(2);
+            const subtotalCell = newRow.insertCell(3);
+            const removeCell = newRow.insertCell(4);
+
+            productNameCell.innerText = productName;
+            quantityCell.innerText = quantity;
+            pricePerItemCell.innerText = `$${pricePerItem.toFixed(2)}`;
+            subtotalCell.innerText = `$${(pricePerItem * quantity).toFixed(2)}`;
+
+            const removeButton = document.createElement('button');
+            removeButton.innerText = 'Remove';
+            removeButton.classList.add('remove-btn');
+            removeButton.onclick = function() {
+                tableBody.removeChild(newRow);
+                updateTotal();
+            };
+            removeCell.appendChild(removeButton);
+
+            updateTotal();
+            document.getElementById('add-product-form').reset();
+        }
+
+        function updateTotal() {
+            const tableBody = document.getElementById('product-table').getElementsByTagName('tbody')[0];
+            const rows = tableBody.getElementsByTagName('tr');
+            let total = 0;
+
+            for (let row of rows) {
+                const subtotal = parseFloat(row.cells[3].innerText.replace('$', ''));
+                total += subtotal;
+            }
+
+            document.getElementById('total').innerText = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>
+

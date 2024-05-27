@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prevent Form Submission </title>
+  <!-- Prevent the browser when i click the form submit button -->
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Prevent Form Submission with Bootstrap</h2>
+  <form id="myForm">
+    <div class="form-group">
+      <label for="textInput">Enter some text:</label>
+      <input type="text" class="form-control" id="textInput" name="textInput">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission
+  // You can add your custom code here to handle form submission via AJAX or other means
+});
+</script>
+
+</body

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Write a program of promises and handle that promises also -->
+</head>
+<body>
+    <script>
+        
+function fetchUserData(userId) {
+  return new Promise((resolve, reject) => {
+    
+    setTimeout(() => {
+      const users = {
+        1: { name: "John", age: 30 },
+        2: { name: "Alice", age: 25 },
+        3: { name: "Bob", age: 35 }
+      };
+
+      
+      if (users[userId]) {
+        
+        resolve(users[userId]);
+      } else {
+        
+        reject(new Error("User not found"));
+      }
+    }, 1000); 
+  });
+}
+
+
+function handleUserData(user) {
+  console.log("User data:", user);
+}
+
+
+function handleError(error) {
+  console.error("Error:", error.message);
+}
+
+
+const userId = 2; 
+
+fetchUserData(userId)
+  .then(handleUserData) 
+  .catch(handleError);  
+
+    </script>
+</body>
+</html>

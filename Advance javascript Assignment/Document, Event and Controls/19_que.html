@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Modal Example</title>
+  <!-- Create a modal box using css and Js with three buttons -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Open Modal
+</button>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Title</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      
+      <div class="modal-body">
+        Modal Content Here
+      </div>
+      
+     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="btn1">Button 1</button>
+        <button type="button" class="btn btn-secondary" id="btn2">Button 2</button>
+        <button type="button" class="btn btn-secondary" id="btn3">Button 3</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+ 
+  document.getElementById("btn1").onclick = function() {
+    
+    alert("Button 1 clicked");
+  };
+
+  document.getElementById("btn2").onclick = function() {
+   
+    alert("Button 2 clicked");
+  };
+
+  document.getElementById("btn3").onclick = function() {
+   
+    alert("Button 3 clicked");
+  };
+</script>
+
+</body>
+</html>

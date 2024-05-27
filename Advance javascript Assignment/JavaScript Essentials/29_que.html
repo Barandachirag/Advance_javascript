@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- How to used JavaScript Output method? -->
+</head>
+<body>
+    <script>
+        // 1 console.log()
+        // Basic usage
+       console.log("Hello, world!");
+
+        // Logging variables
+       var name = "Alice";
+       console.log("Name:", name);
+
+       // Logging objects and arrays
+       var user = {name: "Alice", age: 25};
+       console.log("User object:", user);
+       // Example
+       console.log("This is a log message.");
+       console.log("Variable value:", someVariable);
+
+       //2 alert()
+       // Basic alert
+       alert("Hello, world!");
+
+       // Alert with variable
+       var name = "Alice";
+       alert("Hello, " + name + "!");
+
+       //Example
+       alert("This is an alert message.");
+       
+       // 3 document.write()
+       // Basic usage
+       document.write("Hello, world!");
+
+       // Writing HTML content
+       document.write("<h1>This is a heading</h1>");
+       document.write("<p>This is a paragraph.</p>");
+
+       //Example
+       document.write("This is written directly to the document.");
+       
+       // 4 innerHTML
+       // Basic usage
+       document.getElementById("myDiv").innerHTML = "Hello, world!";
+
+       // With variables
+       var name = "Alice";
+       document.getElementById("myDiv").innerHTML = "Hello, " + name + "!";
+
+       // Example
+        //       <div id="output"></div>
+        //   <script>
+        //   document.getElementById("output").innerHTML = "This is the output.";
+        
+        // 5 prompt()
+
+        // Basic prompt
+         var userInput = prompt("Please enter your name:");
+         alert("Hello, " + userInput + "!");
+
+         var name = prompt("What is your name?");
+         console.log("User's name is " + name);
+
+
+        // 6 console.error(), console.warn(), console.info(), console.debug()
+        console.error("This is an error message.");
+        console.warn("This is a warning message.");
+        console.info("This is an informational message.");
+        console.debug("This is a debug message.");
+        
+        console.error("An error occurred while processing the request.");
+        console.warn("This is a warning about deprecated features.");
+        console.info("This is some informational message.");
+        console.debug("Debugging details: variable value is " + someVariable);
+
+
+
+
+        
+
+
+
+    </script>
+</body>
+</html>
