@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider with Thumbnails</title>
+    <link rel="stylesheet" href="https://unpkg.com/@splidejs/splide@3.0.9/dist/css/splide.min.css">
+    <style>
+        .splide__slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        .splide__slide {
+            opacity: 0.3;
+        }
+
+        .splide__slide.is-active {
+            opacity: 1;
+        }
+
+        .slider-container {
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <!-- Main slider -->
+        <div id="main-slider" class="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide"><img src="./image/1538685780055.jpeg" alt="Image 1"></li>
+                    <li class="splide__slide"><img src="./image/Ahmedabad20guide.webp" alt="Image 2"></li>
+                    <li class="splide__slide"><img src="./image/articleLarge.jpg" alt="Image 3"></li>
+                    <li class="splide__slide"><img src="./image/close-up-appetizing-ramadan-meal_23-2151182451.avif" alt="Image 4"></li>
+                    <li class="splide__slide"><img src="./image/grilled-dorade-vernick-fish.webp" alt="Image 5"></li>
+                    <li class="splide__slide"><img src="./image/istockphoto-1081422898-612x612.jpg" alt="Image 6"></li>
+                    <li class="splide__slide"><img src="./image/photo-1600891964599-f61ba0e24092.avif" alt="Image 7"></li>
+                    <li class="splide__slide"><img src="./image/Restaurant-meal.jpg" alt="Image 8"></li>
+                    <li class="splide__slide"><img src="./image/Kadhai20Ranch20food.webp" alt="Image 9"></li>
+                    <li class="splide__slide"><img src="./image/istockphoto-1165399909-612x612.jpg" alt="Image 10"></li>
+                    <li class="splide__slide"><img src="./image/RU160960-ac1ff99537a2439f89c8ff14a58cad1b.jpg" alt="Image 11"></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <!-- Thumbnail slider -->
+        <div id="thumbnail-slider" class="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide"><img src="./image/1538685780055.jpeg" alt="Thumbnail 1"></li>
+                    <li class="splide__slide"><img src="./image/Ahmedabad20guide.webp" alt="Thumbnail 2"></li>
+                    <li class="splide__slide"><img src="./image/articleLarge.jpg" alt="Thumbnail 3"></li>
+                    <li class="splide__slide"><img src="./image/close-up-appetizing-ramadan-meal_23-2151182451.avif" alt="Thumbnail 4"></li>
+                    <li class="splide__slide"><img src="./image/grilled-dorade-vernick-fish.webp" alt="Thumbnail 5"></li>
+                    <li class="splide__slide"><img src="./image/istockphoto-1081422898-612x612.jpg" alt="Thumbnail 6"></li>
+                    <li class="splide__slide"><img src="./image/photo-1600891964599-f61ba0e24092.avif" alt="Thumbnail 7"></li>
+                    <li class="splide__slide"><img src="./image/Restaurant-meal.jpg" alt="Thumbnail 8"></li>
+                    <li class="splide__slide"><img src="./image/Kadhai20Ranch20food.webp" alt="Thumbnail 9"></li>
+                    <li class="splide__slide"><img src="./image/istockphoto-1165399909-612x612.jpg" alt="Thumbnail 10"></li>
+                    <li class="splide__slide"><img src="./image/RU160960-ac1ff99537a2439f89c8ff14a58cad1b.jpg" alt="Thumbnail 10"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@splidejs/splide@3.0.9/dist/js/splide.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var main = new Splide('#main-slider', {
+                type       : 'fade',
+                rewind     : true,
+                pagination : false,
+                arrows     : false,
+            });
+
+            var thumbnails = new Splide('#thumbnail-slider', {
+                fixedWidth  : 100,
+                fixedHeight : 60,
+                gap         : 10,
+                rewind      : true,
+                pagination  : false,
+                cover       : true,
+                isNavigation: true,
+                breakpoints : {
+                    600: {
+                        fixedWidth : 60,
+                        fixedHeight: 44,
+                    },
+                },
+            });
+
+            main.sync(thumbnails);
+            main.mount();
+            thumbnails.mount();
+        });
+    </script>
+</body>
+</html>
